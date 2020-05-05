@@ -1,8 +1,18 @@
 import axios from "axios";
 import { GET_SERIES_INDEX_DATA } from "../state/actions/actionTypes";
 
-const fetchData = async (dispatch) => {
+const getData = async (dispatch) => {
   let response = await axios.get(
-    "https://content.viaplay.se/pc-se/serier/samtliga"
-  );
-};
+    "https://cors-anywhere.herokuapp.com/https://content.viaplay.se/pc-se/serier/samtliga"
+  )
+  dispatch({
+    type: GET_SERIES_INDEX_DATA, payload: {
+      series:
+        response.data._embedded["viaplay:blocks"][0]._embedded[
+        "viaplay:products"
+        ]
+    }
+  })
+}
+
+export { getData }
