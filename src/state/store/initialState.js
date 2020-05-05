@@ -1,5 +1,5 @@
 const initialState = {
-  show: true
+  showContent: false
 }
 
 export default initialState

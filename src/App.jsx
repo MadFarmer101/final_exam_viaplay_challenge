@@ -1,20 +1,27 @@
-import React, { useEffect } from "react"
-import { getData } from "./modules/dataAction"
-import { useDispatch } from "react-redux"
+import React, { useEffect } from "react";
+import { getData } from "./modules/dataAction";
+import { useDispatch, useSelector } from "react-redux";
 
 const App = () => {
-
-  const dispatch = useDispatch()
-
+  const dispatch = useDispatch();
+  const content = useSelector((state) => state.content);
   useEffect(() => {
-    getData(dispatch)
-  }, [])
-  
-  return (
-    <div>
-      <h1>Hello</h1>
-    </div>
-  )
-}
+    getData(dispatch);
+  }, []);
 
-export default App
+  let displayContent;
+  if (content) {
+    displayContent = content.map((video) => {
+      return (
+        <img
+          src={video.content.images.boxart.url}
+          alt={video.content.originalTitle}
+        />
+      );
+    });
+  }
+
+  return <div>{displayContent}</div>;
+};
+
+export default App;
