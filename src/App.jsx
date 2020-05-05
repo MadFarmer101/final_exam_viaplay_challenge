@@ -13,15 +13,29 @@ const App = () => {
   if (content) {
     displayContent = content.map((video) => {
       return (
-        <img
-          src={video.content.images.boxart.url}
-          alt={video.content.originalTitle}
-        />
+        <div className="display-show">
+          {" "}
+          <img
+            src={video.content.images.boxart.url}
+            alt={video.content.originalTitle}
+          />
+        </div>
       );
     });
   }
 
-  return <div>{displayContent}</div>;
+  return (
+    <>
+    <div className="header">
+      <img
+        src="https://kundservice.viaplay.se/wp-content/themes/viaplaycs/assets/dist/images/viaplay_white.svg"
+        alt="logo"
+      />
+    </div>
+    <div >{displayContent}</div>
+    <div className='footer'/>
+  </>
+  )
 };
 
 export default App;
