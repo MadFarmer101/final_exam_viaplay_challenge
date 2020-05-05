@@ -15,7 +15,7 @@ const App = () => {
       return (
         <div className="display-show">
           {" "}
-          <img
+          <img class="series-image"
             src={video.content.images.landscape.url}
             alt={video.content.originalTitle}
           />
