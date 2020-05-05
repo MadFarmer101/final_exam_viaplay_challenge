@@ -16,7 +16,7 @@ const App = () => {
         <div className="display-show">
           {" "}
           <img
-            src={video.content.images.boxart.url}
+            src={video.content.images.landscape.url}
             alt={video.content.originalTitle}
           />
         </div>
